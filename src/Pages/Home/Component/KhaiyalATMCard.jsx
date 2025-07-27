@@ -1,4 +1,4 @@
-import KhaiyalCard from '../../../assets/images/KhaiyalCard.jpeg';
+import cardImg from '../../../assets/images/KhaiyalCard.jpeg';
 
 function KhaiyalATMCard() {
     return (
@@ -12,7 +12,7 @@ function KhaiyalATMCard() {
                 {/* Image Section */}
                 <div className="w-full  flex justify-center items-center md:mb-0">
                     <img
-                        src={KhaiyalCard}
+                        src={cardImg}
                         className=""
                         alt="Khaiyal Membership Card"
                     />
