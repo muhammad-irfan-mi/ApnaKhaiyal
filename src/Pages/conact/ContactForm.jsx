@@ -138,8 +138,8 @@ const ContactForm = () => {
         data.append("address", address);
         data.append("businessType", businessType);
         data.append("category", category);
-        data.append("designImage", designImage);
-        data.append("paymentSlip", paymentSlip);
+        data.append("design", designImage);
+        data.append("slip", paymentSlip);
 
         try {
             const [res, err] = await useAxiosForm('POST', 'displayOffer', null, data);
