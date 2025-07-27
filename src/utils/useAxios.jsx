@@ -17,7 +17,7 @@ const useAxios = async (method, path, token = null, body = null) => {
             method,
             headers,
             data: body,
-            withCredentials: true,
+             withCredentials: true,
         });
 
         return [response.data, null];
