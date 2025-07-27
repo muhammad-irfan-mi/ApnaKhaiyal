@@ -11,7 +11,7 @@ import {
 import { Context } from "../../Context/ContextProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropertyMap from "../../component/map/PropertyMap";
-import useAxios from "../../utils/useAxios";
+import useAxiosForm from "../../utils/useAxiosForm";
 import { toast } from "react-toastify";
 
 // Reusable Field Component
@@ -94,7 +94,7 @@ const PostAdForm = () => {
             //     method: "POST",
             //     body: form,
             // });
-            const [res, err] = await useAxios('POST', 'property', null, form);
+            const [res, err] = await useAxiosForm('POST', 'property', null, form);
             if (res) {
                 toast.success('Property Add Successfully', { autoClose: 3000 })
             }
