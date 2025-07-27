@@ -108,8 +108,8 @@ const ContactForm = () => {
         category: "",
     });
 
-    const [designImage, setDesignImage] = useState(null);
-    const [paymentSlip, setPaymentSlip] = useState(null);
+    const [designFile, setDesignFile] = useState(null);
+    const [paymentFile, setPaymentFile] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -125,7 +125,7 @@ const ContactForm = () => {
             name, businessType, cell, email, category, city, address
         } = formData;
 
-        if (!name || !cell || !email || !city || !address || !businessType || !category || !designImage || !paymentSlip) {
+        if (!name || !cell || !email || !city || !address || !businessType || !category || !designFile || !paymentFile) {
             toast.error("Please fill in all required fields.");
             return;
         }
@@ -138,8 +138,8 @@ const ContactForm = () => {
         data.append("address", address);
         data.append("businessType", businessType);
         data.append("category", category);
-        data.append("design", designImage);
-        data.append("slip", paymentSlip);
+        data.append("design", designFile);
+        data.append("slip", paymentFile);
 
         try {
             const [res, err] = await useAxiosForm('POST', 'displayOffer', null, data);
@@ -154,7 +154,7 @@ const ContactForm = () => {
                     businessType: "",
                     category: "",
                 });
-                setDesignImage(null);
+                setDesignFile(null);
                 setPaymentSlip(null);
             }
             else {
@@ -270,7 +270,7 @@ const ContactForm = () => {
                             <input
                                 type="file"
                                 accept="image/*"
-                                onChange={(e) => handleImageChange(e, setDesignImage)}
+                                onChange={(e) => handleImageChange(e, setDesignFile)}
                                 className="w-full p-2 rounded-md border text-gray-300"
                             />
                         </div>
@@ -279,7 +279,7 @@ const ContactForm = () => {
                             <input
                                 type="file"
                                 accept="image/*"
-                                onChange={(e) => handleImageChange(e, setPaymentSlip)}
+                                onChange={(e) => handleImageChange(e, setPaymentFile)}
                                 className="w-full p-2 rounded-md border text-gray-300"
                             />
                         </div>
