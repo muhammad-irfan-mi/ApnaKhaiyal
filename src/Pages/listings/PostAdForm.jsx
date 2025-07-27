@@ -11,6 +11,8 @@ import {
 import { Context } from "../../Context/ContextProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropertyMap from "../../component/map/PropertyMap";
+import useAxios from "../../utils/useAxios";
+import { toast } from "react-toastify";
 
 // Reusable Field Component
 const FormField = ({ label, children }) => (
@@ -88,15 +90,22 @@ const PostAdForm = () => {
         }
 
         try {
-            const res = await fetch("http://localhost:5000/api/property", {
-                method: "POST",
-                body: form,
-            });
-
-            const data = await res.json();
-            console.log("Success:", data);
+            // const res = await fetch("http://localhost:5000/api/property", {
+            //     method: "POST",
+            //     body: form,
+            // });
+            const [res, err] = await useAxios('POST', 'property', null, form);
+            if (res) {
+                toast.success('Property Add Successfully', { autoClose: 3000 })
+            }
+            else{
+                toast.error(err || "Property Not Added")
+            }
+            // const data = await res.json();
+            // console.log("Success:", data);
         } catch (err) {
             console.error("Error:", err);
+            toast.error(err || 'Internal Server Error')
         }
     };
 
