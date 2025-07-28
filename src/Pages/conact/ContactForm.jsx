@@ -18,8 +18,8 @@ const ContactForm = () => {
         category: "",
     });
 
-    const [designFile, setDesignFile] = useState(null);
-    const [paymentFile, setPaymentFile] = useState(null);
+    const [designFile, setDesignFile] = useState('');
+    const [paymentFile, setPaymentFile] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -63,8 +63,8 @@ const ContactForm = () => {
                 businessType: "",
                 category: "",
             });
-            setDesignFile(null);
-            setPaymentSlip(null);
+            setDesignFile('');
+            setPaymentSlip('');
         }
         else {
             toast.error(err || 'Offer submission failed 1.')
