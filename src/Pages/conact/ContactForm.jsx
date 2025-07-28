@@ -158,7 +158,7 @@ const ContactForm = () => {
                 setPaymentSlip(null);
             }
             else {
-                toast.error(err || 'Offer submission failed.')
+                toast.error(err || 'Offer submission failed 1.')
             }
         } catch (err) {
             toast.error("Offer submission failed.");
